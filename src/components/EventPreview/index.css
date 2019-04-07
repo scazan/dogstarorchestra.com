@@ -1,0 +1,8 @@
+.eventPreview {
+  margin-top: 20px;
+  margin-bottom: 80px;
+  width: 270px;
+}
+.eventPreview .title {
+    font-weight: 700;
+}
