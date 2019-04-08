@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { displayEntries } from './util/store';
+import { getEntries } from './util/store';
 import YearPreview from './components/YearPreview/index';
 import './App.css';
 
@@ -15,6 +15,7 @@ interface State {
 class App extends React.Component<object, State> {
   constructor(props: any) {
     super(props);
+    // GLOBAL STATE
     this.state = {
       events: [],
       years: [],
@@ -48,9 +49,9 @@ class App extends React.Component<object, State> {
     let years: any = [];
 
     Promise.all([
-      displayEntries(['festivalEvent'])
+      getEntries(['festivalEvent'])
         .then( entries => events = entries[0]),
-      displayEntries(['festivalYear'])
+      getEntries(['festivalYear'])
         .then( entries => years = entries[0]),
     ])
     .then(() => {

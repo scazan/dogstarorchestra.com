@@ -1,4 +1,8 @@
 .yearPreview {
+  @media print {
+    page-break-after: always;
+  }
+
   min-width: 1200px;
   width: 1200px;
   margin: 0 auto;

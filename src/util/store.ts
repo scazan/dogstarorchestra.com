@@ -24,8 +24,11 @@ export const fetchEntriesForContentType = (contentType: any) => {
   })
 }
 
-export const displayEntries = (contentTypes: string[]) => {
+export const getEntries = (contentTypes: string[]) => {
   return Promise.all(contentTypes.map((contentType) => {
     return fetchEntriesForContentType(contentType);
   }));
-}
+};
+
+export const getEntry = (id: string|number) => client.getEntry(`${id}`)
+  .catch(console.error);
