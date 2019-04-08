@@ -1,4 +1,5 @@
 import * as React from 'react';
+import moment from 'moment';
 import './index.scss';
 
 interface IProps {
@@ -11,18 +12,24 @@ class EventPreview extends React.Component<IProps> {
     return (
       <div className="eventPreview">
         <div className="date">
-          {event.date}
+          {moment(event.date).format('ll')}
         </div>
         <div className="title">
           {event.title}
         </div>
-        <div>
+        <div className="venue">
+          {event.location ? (
+            <a href={`https://www.google.com/maps/dir/?api=1&destination=${event.location.lat},${event.location.lon}`} target="_blank">
+              {event.venue}
+            </a>
+          ) : (
+            <span>{event.venue}</span>
+          )}
+        </div>
+        <div className="price">
           {event.price}
         </div>
-        <div>
-          {event.venue}
-        </div>
-        <div>
+        <div className="description">
           {event.description}
         </div>
       </div>
