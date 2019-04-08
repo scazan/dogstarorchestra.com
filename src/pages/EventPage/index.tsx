@@ -2,6 +2,10 @@ import * as React from 'react';
 import { getEntry } from '../../util/store';
 import './index.scss';
 
+let backgroundColor = {
+  backgroundColor: `hsl(${parseInt((Math.random() * 357).toString(), 10)}, 100%, 92%, 1)`,
+};
+
 interface IProps {
   match: {
     params: {
@@ -38,7 +42,10 @@ class EventPage extends React.Component<IProps, IState> {
   public render() {
     const {title, description, longDescription} = this.state.entry.fields;
     return (
-      <div className="eventPage">
+      <div
+        style={backgroundColor}
+        className="eventPage"
+      >
         <h1 className="title">{title}</h1>
       {longDescription ? (
         <p>
@@ -61,6 +68,10 @@ class EventPage extends React.Component<IProps, IState> {
       .then( (entry: any) => this.setState({
         entry
       }));
+
+    backgroundColor = {
+      backgroundColor: `hsl(${parseInt((Math.random() * 357).toString(), 10)}, 100%, 92%, 1)`,
+    };
   }
 };
 

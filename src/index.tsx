@@ -6,14 +6,9 @@ import EventPage from './pages/EventPage/index';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
-const backgroundColor = {
-  backgroundColor: `hsl(${parseInt((Math.random() * 357).toString(), 10)}, 100%, 92%, 1)`,
-};
-
 const routing = (
   <Router>
     <div
-      style={backgroundColor}
     >
       <Switch>
         <Route path="/event/:id" component={EventPage}/>
