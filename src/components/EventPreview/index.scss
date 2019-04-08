@@ -1,6 +1,11 @@
+/* TEST */
 .eventPreview {
   float: left;
   margin-top: 20px;
   margin-bottom: 80px;
   width: 270px;
+
+  .title {
+    font-weight: 700;
+  }
 }

@@ -1,9 +1,10 @@
 import * as React from 'react';
-import './index.css';
+import './index.scss';
 
 interface IProps {
   event: any,
 }
+
 class EventPreview extends React.Component<IProps> {
   public render() {
     const event = this.props.event.fields;
