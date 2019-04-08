@@ -8,19 +8,52 @@ interface IProps {
   events: any,
 }
 
-class YearPreview extends React.Component<IProps> {
+interface IState {
+  informationHidden: boolean,
+}
+
+
+class YearPreview extends React.Component<IProps, IState> {
+  constructor(props: any) {
+    super(props);
+
+    this.state = {
+      informationHidden: true,
+    };
+
+    this.toggleInformation = this.toggleInformation.bind(this);
+  }
+
+  toggleInformation() {
+    this.setState({
+      informationHidden: !this.state.informationHidden,
+    });
+  }
+
   public render() {
     const year = this.props.year.fields;
+    const {description} = year;
     const events = this.props.events;
+    const hiddenClass = this.state.informationHidden ? 'hidden' : '';
     const pastClass = moment().isAfter(events.slice(-1)[0].fields.date) ? 'past' : '';
     return (
-      <div className={`yearPreview ${pastClass}`}>
-        <h1 className="title">{year.title}</h1>
-          <div className="events">
-            { events.map((event: any, i: number) =>
-              <EventPreview event={event}/>
-            )}
+      <div className={`yearPreview ${pastClass} ${hiddenClass}`}>
+        <h1
+          className="title"
+          onClick={this.toggleInformation}
+        >
+          {year.title}
+        </h1>
+        {description && (
+          <div className={`information ${hiddenClass}`}>
+            {description}
           </div>
+        )}
+        <div className="events">
+          { events.map((event: any, i: number) =>
+            <EventPreview event={event}/>
+          )}
+        </div>
       </div>
     );
   }

@@ -11,14 +11,13 @@ class EventPreview extends React.Component<IProps> {
   public render() {
     const event = this.props.event.fields;
     return (
+          <Link to={`/event/${this.props.event.sys.id}`}>
       <div className="eventPreview">
         <div className="date">
           {moment(event.date).format('ll')}
         </div>
         <div className="title">
-          <Link to={`/event/${this.props.event.sys.id}`}>
             {event.title}
-          </Link>
         </div>
         <div className="venue">
           {event.location ? (
@@ -36,6 +35,7 @@ class EventPreview extends React.Component<IProps> {
           {event.description}
         </div>
       </div>
+          </Link>
     );
   }
 };

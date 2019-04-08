@@ -7,6 +7,11 @@
   width: 1200px;
   margin: 0 auto;
 
+  .title {
+    cursor: pointer;
+    user-select: none;
+  }
+
   .events {
     display: grid;
     grid-template-columns: 295px 295px 295px 295px ;
@@ -14,5 +19,16 @@
 
   &.past {
     opacity: 0.2;
+  }
+
+  .information {
+    margin-bottom: 100px;
+
+    &.hidden {
+      margin-bottom: 0px;
+      height: 0;
+      overflow: hidden;
+    }
+
   }
 }

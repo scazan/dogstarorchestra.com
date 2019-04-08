@@ -1,10 +1,8 @@
 import * as React from 'react';
+import moment from 'moment';
+import { Link } from "react-router-dom";
 import { getEntry } from '../../util/store';
 import './index.scss';
-
-let backgroundColor = {
-  backgroundColor: `hsl(${parseInt((Math.random() * 357).toString(), 10)}, 100%, 92%, 1)`,
-};
 
 interface IProps {
   match: {
@@ -14,13 +12,7 @@ interface IProps {
   }
 }
 interface IState {
-  entry: {
-    fields: {
-      title: string,
-        description: string|null,
-        longDescription: any|null,
-    },
-  },
+  entry: any,
 }
 
 class EventPage extends React.Component<IProps, IState> {
@@ -40,24 +32,62 @@ class EventPage extends React.Component<IProps, IState> {
   }
 
   public render() {
-    const {title, description, longDescription} = this.state.entry.fields;
+    const {
+      title,
+      description,
+      longDescription,
+      date,
+      location,
+      venue,
+      price,
+      festival,
+    } = this.state.entry.fields;
+
     return (
-      <div
-        style={backgroundColor}
-        className="eventPage"
-      >
+      <div className="eventPage">
         <h1 className="title">{title}</h1>
-      {longDescription ? (
-        <p>
-          {longDescription.content.map((desc:any) => desc.content.map(( singleDesc: any ) => (
-            <p>{singleDesc.value}</p>
-          )))}
-        </p>
-      ) : (
-        <p>
-          {description}
-        </p>
-      )}
+        {festival && (
+            <h2 className="festivalTitle">
+              <Link to="/">
+                {festival.fields.title}
+              </Link>
+            </h2>
+        )}
+        <h2>
+          <div className="date">
+            {date && moment(date).format('ll')}
+          </div>
+
+          {venue && (
+              <span className="venue">
+                &nbsp;at&nbsp;
+                {(location) ? (
+                  <a href={`https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lon}`} target="_blank">
+                    {venue}
+                  </a>
+                ) : (
+                  <span>{venue}</span>
+                )}
+              </span>
+          )}
+
+          <div className="price">
+            {price}
+          </div>
+      </h2>
+        {longDescription ? (
+          <p>
+            {longDescription.content.map((desc:any) => desc.content.map(( singleDesc: any ) => (
+              <p>{singleDesc.value}</p>
+            )))}
+          </p>
+        ) : (
+          <p>
+            {description}
+          </p>
+        )}
+
+      
       </div>
     );
   }
@@ -68,10 +98,6 @@ class EventPage extends React.Component<IProps, IState> {
       .then( (entry: any) => this.setState({
         entry
       }));
-
-    backgroundColor = {
-      backgroundColor: `hsl(${parseInt((Math.random() * 357).toString(), 10)}, 100%, 92%, 1)`,
-    };
   }
 };
 

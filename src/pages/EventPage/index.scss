@@ -3,5 +3,63 @@
   min-width: 1200px;
   width: 1200px;
   margin: 0 auto;
-  min-height: 1vh;
+  padding-bottom: 300px;
+  min-height: 100vh;
+
+  h1 {
+    margin-bottom: 100px;
+  }
+
+  .festivalTitle {
+    // padding-top: 50px;
+    margin: 0;
+    // margin-bottom: 50px;
+    font-size: 2em;
+    color: #333;
+  }
+
+    a.festivalTitle {
+      border-bottom: 1px dotted transparent;
+    }
+
+    a.festivalTitle:hover {
+      border-bottom: 1px dotted #333;
+    }
+
+  h2 {
+    margin-bottom: 100px;
+    margin-top: 0;
+
+    .date, .venue, .price, a {
+      display: inline-block;
+      font-size: 2rem;
+      color: #666;
+    }
+
+    .price {
+      display: block;
+    }
+  }
+
+  a {
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      border-bottom: 1px dotted #666;
+    }
+  }
+
+  .mapouter{
+    position:relative;
+    text-align:right;
+    height:295px;
+    width:295px;
+    margin-top: 100px;
+  }
+  .gmap_canvas {
+    overflow:hidden;
+    background:none!important;
+    height:295px;
+    width:295px;
+  }
 }
