@@ -11,4 +11,8 @@
     display: grid;
     grid-template-columns: 295px 295px 295px 295px ;
   }
+
+  &.past {
+    opacity: 0.2;
+  }
 }
