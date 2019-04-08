@@ -10,11 +10,11 @@ class EventPreview extends React.Component<IProps> {
     const event = this.props.event.fields;
     return (
       <div className="eventPreview">
+        <div className="date">
+          {event.date}
+        </div>
         <div className="title">
           {event.title}
-        </div>
-        <div>
-          {event.date}
         </div>
         <div>
           {event.price}

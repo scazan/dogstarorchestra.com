@@ -1,6 +1,6 @@
 import * as React from 'react';
 import EventPreview from '../EventPreview/index';
-import './index.css';
+import './index.scss';
 
 interface IProps {
   year: any,
@@ -13,13 +13,12 @@ class YearPreview extends React.Component<IProps> {
     const events = this.props.events;
     return (
       <div className="yearPreview">
-        <div className="title">
-          <h1>{year.title}</h1>
-
-          { events.map((event: any, i: number) =>
-            <EventPreview event={event}/>
-          )}
-        </div>
+        <h1 className="title">{year.title}</h1>
+          <div className="events">
+            { events.map((event: any, i: number) =>
+              <EventPreview event={event}/>
+            )}
+          </div>
       </div>
     );
   }
