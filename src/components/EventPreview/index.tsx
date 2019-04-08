@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from "react-router-dom";
 import moment from 'moment';
 import './index.scss';
 
@@ -15,7 +16,9 @@ class EventPreview extends React.Component<IProps> {
           {moment(event.date).format('ll')}
         </div>
         <div className="title">
-          {event.title}
+          <Link to={`/event/${this.props.event.sys.id}`}>
+            {event.title}
+          </Link>
         </div>
         <div className="venue">
           {event.location ? (

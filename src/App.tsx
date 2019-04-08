@@ -3,9 +3,6 @@ import { getEntries } from './util/store';
 import YearPreview from './components/YearPreview/index';
 import './App.css';
 
-const backgroundColor = {
-  backgroundColor: `hsl(${parseInt((Math.random() * 357).toString(), 10)}, 100%, 92%, 1)`,
-};
 
 interface State {
   events: any[];
@@ -32,7 +29,6 @@ class App extends React.Component<object, State> {
 
     return (
       <div className="App"
-        style={backgroundColor}
       >
       {this.state.years.map((year: any, i) =>
         <YearPreview

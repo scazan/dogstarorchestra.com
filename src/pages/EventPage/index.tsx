@@ -14,7 +14,7 @@ interface IState {
     fields: {
       title: string,
         description: string|null,
-        longDescription: string|null,
+        longDescription: any|null,
     },
   },
 }
@@ -36,18 +36,21 @@ class EventPage extends React.Component<IProps, IState> {
   }
 
   public render() {
-    console.log(this.state);
     const {title, description, longDescription} = this.state.entry.fields;
     return (
       <div className="eventPage">
-        <h1 className="title"> AN EVENT number: {title}  </h1>
-        <p>
+        <h1 className="title">{title}</h1>
       {longDescription ? (
-        {longDescription}
-      ) : (
-        {description}
-      )}
+        <p>
+          {longDescription.content.map((desc:any) => desc.content.map(( singleDesc: any ) => (
+            <p>{singleDesc.value}</p>
+          )))}
         </p>
+      ) : (
+        <p>
+          {description}
+        </p>
+      )}
       </div>
     );
   }
