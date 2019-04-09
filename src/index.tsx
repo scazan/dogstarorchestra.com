@@ -5,7 +5,6 @@ import ScrollToTop from './ScrollToTop';
 import App from './App';
 import EventPage from './pages/EventPage/index';
 import './index.css';
-import registerServiceWorker from './registerServiceWorker';
 
 const backgroundColor = {
   backgroundColor: `hsl(${parseInt((Math.random() * 357).toString(), 10)}, 100%, 92%, 1)`,
@@ -31,4 +30,4 @@ ReactDOM.render(
   routing,
   document.getElementById('root') as HTMLElement
 );
-registerServiceWorker();
+// registerServiceWorker();

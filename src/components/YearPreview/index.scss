@@ -1,3 +1,7 @@
+$break-large: 2500px;
+$break-medium: 1500px;
+$break-mobile: 1000px;
+
 .yearPreview {
   @media print {
     page-break-after: always;
@@ -7,14 +11,62 @@
   width: 1200px;
   margin: 0 auto;
 
+  @media screen and (min-width: $break-large) {
+    width: 1770px;
+  }
+  @media screen and (max-width: $break-medium) {
+    width: 885px;
+    min-width: initial;
+  }
+  @media screen and (max-width: $break-mobile) {
+    width: 300px;
+    min-width: initial;
+  }
+
   .title {
     cursor: pointer;
     user-select: none;
   }
+    & > .title:hover::after {
+      content: '↕';
+      display: block;
+      margin: 0 auto;
+      font-size: 40px;
+      text-align: center;
+      position: absolute;
+      bottom: -105px;
+      left: 47%;
+    }
+
+  @media screen and (min-width: $break-large) {
+    & > .title {
+      font-size: 8.25em;
+    }
+  }
+  @media screen and (max-width: $break-medium) {
+    & > .title {
+      font-size: 4.1em;
+    }
+  }
+  @media screen and (max-width: $break-mobile) {
+    & > .title {
+      font-size: 1.5em;
+    }
+  }
+
 
   .events {
     display: grid;
     grid-template-columns: 295px 295px 295px 295px ;
+    @media screen and (min-width: $break-large) {
+      grid-template-columns: 295px 295px 295px 295px 295px 295px;
+    }
+    @media screen and (max-width: $break-medium) {
+      grid-template-columns: 295px 295px 295px;
+    }
+    @media screen and (max-width: $break-mobile) {
+      grid-template-columns: 295px;
+    }
   }
 
   &.past {
@@ -24,7 +76,7 @@
   .information {
     margin-bottom: 100px;
     line-height: 2em;
-
+    text-align: justify;
     &.hidden {
       margin-bottom: 0px;
       height: 0;
@@ -41,6 +93,10 @@
 
       .content {
         margin: 10px;
+      }
+
+      img {
+        width: 100%;
       }
     }
 
