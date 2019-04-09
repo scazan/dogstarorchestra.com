@@ -23,11 +23,25 @@
 
   .information {
     margin-bottom: 100px;
+    line-height: 2em;
 
     &.hidden {
       margin-bottom: 0px;
       height: 0;
       overflow: hidden;
+    }
+
+    .image {
+      display: inline-block;
+      border: 1px dotted #333;
+      margin: 25px;
+      margin-top: 50px;
+      margin-left: 0;
+      padding: 10px;
+
+      .content {
+        margin: 10px;
+      }
     }
 
   }

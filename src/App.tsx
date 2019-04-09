@@ -51,6 +51,8 @@ class App extends React.Component<object, State> {
         .then( entries => years = entries[0]),
     ])
     .then(() => {
+      years = years.sort((year:any, nextYear: any) => new Date(nextYear.fields.year).getFullYear() - new Date(year.fields.year).getFullYear());
+      console.log(years);
       this.setState({
         events,
         years,

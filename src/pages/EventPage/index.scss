@@ -3,7 +3,7 @@
   min-width: 1200px;
   width: 1200px;
   margin: 0 auto;
-  padding-bottom: 300px;
+  padding-bottom: 100px;
   min-height: 100vh;
 
   h1 {
@@ -24,6 +24,9 @@
 
     a.festivalTitle:hover {
       border-bottom: 1px dotted #333;
+    &::before {
+      content: '← ';
+    }
     }
 
   h2 {
@@ -47,6 +50,11 @@
     &:hover {
       border-bottom: 1px dotted #666;
     }
+  }
+
+  .description {
+    width: 50%;
+    line-height: 2em;
   }
 
   .mapouter{

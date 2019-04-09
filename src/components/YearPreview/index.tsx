@@ -1,5 +1,7 @@
 import * as React from 'react';
 import EventPreview from '../EventPreview/index';
+import { BLOCKS } from '@contentful/rich-text-types';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import moment from 'moment';
 import './index.scss';
 
@@ -12,6 +14,19 @@ interface IState {
   informationHidden: boolean,
 }
 
+const options = {
+    renderNode: {
+        [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
+          const { file: {url}, title, description } = node.data.target.fields;
+          return (
+            <div className="image">
+              <img src={url} alt={description} />
+              {title && <div className="caption">{description}</div>}
+            </div>
+          );
+        },
+    },
+};
 
 class YearPreview extends React.Component<IProps, IState> {
   constructor(props: any) {
@@ -30,9 +45,10 @@ class YearPreview extends React.Component<IProps, IState> {
     });
   }
 
+
   public render() {
     const year = this.props.year.fields;
-    const {description} = year;
+    const {longDescription} = year;
     const events = this.props.events;
     const hiddenClass = this.state.informationHidden ? 'hidden' : '';
     const pastClass = moment().isAfter(events.slice(-1)[0].fields.date) ? 'past' : '';
@@ -44,9 +60,9 @@ class YearPreview extends React.Component<IProps, IState> {
         >
           {year.title}
         </h1>
-        {description && (
+        {longDescription && (
           <div className={`information ${hiddenClass}`}>
-            {description}
+            {documentToReactComponents(longDescription, options)}
           </div>
         )}
         <div className="events">

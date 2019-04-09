@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ScrollToTop from './ScrollToTop';
 import App from './App';
 import EventPage from './pages/EventPage/index';
 import './index.css';
@@ -8,10 +9,12 @@ import registerServiceWorker from './registerServiceWorker';
 
 const backgroundColor = {
   backgroundColor: `hsl(${parseInt((Math.random() * 357).toString(), 10)}, 100%, 92%, 1)`,
+  paddingTop: '100px',
 };
 
 const routing = (
   <Router>
+  <ScrollToTop>
     <div
       style={backgroundColor}
     >
@@ -20,6 +23,7 @@ const routing = (
         <Route path="/" component={App}/>
       </Switch>
     </div>
+  </ScrollToTop>
   </Router>
 );
 

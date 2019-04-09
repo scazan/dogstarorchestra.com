@@ -76,13 +76,13 @@ class EventPage extends React.Component<IProps, IState> {
           </div>
       </h2>
         {longDescription ? (
-          <p>
+          <p className="description">
             {longDescription.content.map((desc:any) => desc.content.map(( singleDesc: any ) => (
               <p>{singleDesc.value}</p>
             )))}
           </p>
         ) : (
-          <p>
+          <p className="description">
             {description}
           </p>
         )}
