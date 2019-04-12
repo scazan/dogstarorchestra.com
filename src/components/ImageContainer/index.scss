@@ -1,0 +1,16 @@
+.image {
+  display: inline-block;
+  border: 1px dotted #333;
+  margin: 25px;
+  margin-top: 50px;
+  margin-left: 0;
+  padding: 10px;
+
+  .content {
+    margin: 10px;
+  }
+
+  img {
+    width: 100%;
+  }
+}

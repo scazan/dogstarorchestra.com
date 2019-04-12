@@ -1,7 +1,6 @@
 import * as React from 'react';
 import EventPreview from '../EventPreview/index';
-import { BLOCKS } from '@contentful/rich-text-types';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import RichText from '../RichText/index';
 import moment from 'moment';
 import './index.scss';
 
@@ -13,20 +12,6 @@ interface IProps {
 interface IState {
   informationHidden: boolean,
 }
-
-const options = {
-    renderNode: {
-        [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
-          const { file: {url}, title, description } = node.data.target.fields;
-          return (
-            <div className="image">
-              <img src={url} alt={description} />
-              {title && <div className="caption">{description}</div>}
-            </div>
-          );
-        },
-    },
-};
 
 class YearPreview extends React.Component<IProps, IState> {
   constructor(props: any) {
@@ -62,7 +47,7 @@ class YearPreview extends React.Component<IProps, IState> {
         </h1>
         {longDescription && (
           <div className={`information ${hiddenClass}`}>
-            {documentToReactComponents(longDescription, options)}
+            <RichText content={longDescription} />
           </div>
         )}
         <div className="events">

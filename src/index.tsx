@@ -4,23 +4,26 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ScrollToTop from './ScrollToTop';
 import App from './App';
 import EventPage from './pages/EventPage/index';
+import Page from './pages/Page/index';
+import Menu from './components/SiteMenu/index';
 import './index.css';
 
 const backgroundColor = {
   backgroundColor: `hsl(${parseInt((Math.random() * 357).toString(), 10)}, 100%, 92%, 1)`,
-  paddingTop: '100px',
 };
 
 const routing = (
   <Router>
   <ScrollToTop>
     <div
-      style={backgroundColor}
+      style={{...backgroundColor, ...{paddingTop: '100px'}}}
     >
       <Switch>
         <Route path="/event/:id" component={EventPage}/>
+        <Route path="/:id" component={Page}/>
         <Route path="/" component={App}/>
       </Switch>
+      <Menu/>
     </div>
   </ScrollToTop>
   </Router>

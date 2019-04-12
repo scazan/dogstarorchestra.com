@@ -10,6 +10,7 @@ $break-mobile: 1000px;
   min-width: 1200px;
   width: 1200px;
   margin: 0 auto;
+  margin-bottom: 200px;
 
   @media screen and (min-width: $break-large) {
     width: 1770px;
@@ -75,6 +76,9 @@ $break-mobile: 1000px;
   &.past {
     opacity: 0.2;
   }
+  &.past:hover {
+    opacity: 0.5;
+  }
 
   .information {
     margin-bottom: 100px;
@@ -86,22 +90,6 @@ $break-mobile: 1000px;
       overflow: hidden;
     }
 
-    .image {
-      display: inline-block;
-      border: 1px dotted #333;
-      margin: 25px;
-      margin-top: 50px;
-      margin-left: 0;
-      padding: 10px;
-
-      .content {
-        margin: 10px;
-      }
-
-      img {
-        width: 100%;
-      }
-    }
 
   }
 }

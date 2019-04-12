@@ -1,7 +1,6 @@
 import * as React from 'react';
 import moment from 'moment';
-import { BLOCKS } from '@contentful/rich-text-types';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import RichText from '../../components/RichText/index';
 import { Link } from "react-router-dom";
 import { getEntry } from '../../util/store';
 import './index.scss';
@@ -16,20 +15,6 @@ interface IProps {
 interface IState {
   entry: any,
 }
-
-const options = {
-    renderNode: {
-        [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
-          const { file: {url}, title, description } = node.data.target.fields;
-          return (
-            <div className="image">
-              <img src={url} alt={description} />
-              {title && <div className="caption">{description}</div>}
-            </div>
-          );
-        },
-    },
-};
 
 class EventPage extends React.Component<IProps, IState> {
   constructor(props: IProps) {
@@ -93,7 +78,7 @@ class EventPage extends React.Component<IProps, IState> {
       </h2>
         {longDescription ? (
           <p className="description">
-            {documentToReactComponents(longDescription, options)}
+            <RichText content={longDescription} />
           </p>
         ) : (
           <p className="description">
