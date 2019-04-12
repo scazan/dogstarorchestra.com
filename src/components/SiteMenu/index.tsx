@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from "react-router-dom";
-import { fetchEntriesForContentType } from '../../util/store';
+import { fetchEntriesForContentType, state } from '../../util/store';
 import './index.scss';
 
 interface IProps {
@@ -22,7 +22,9 @@ class SiteMenu extends React.Component<IProps, IState> {
   public render() {
     console.log('>>>', this.state.pages);
     return (
-      <div className="menu">
+      <div className="menu"
+        style={{backgroundColor: state.backgroundColor}}
+      >
         <div className="menuItems">
           {this.state.pages.map( (page: any) => (
             <Link to={`/${page.sys.id}`}>

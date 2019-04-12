@@ -32,3 +32,7 @@ export const getEntries = (contentTypes: string[]) => {
 
 export const getEntry = (id: string|number) => client.getEntry(`${id}`)
   .catch(console.error);
+
+export const state = {
+  backgroundColor: `hsl(${parseInt((Math.random() * 357).toString(), 10)}, 100%, 92%, 1)`,
+};

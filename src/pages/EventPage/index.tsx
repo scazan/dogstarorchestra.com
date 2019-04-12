@@ -35,7 +35,7 @@ class EventPage extends React.Component<IProps, IState> {
   public render() {
     const {
       title,
-      description,
+      shortDescription,
       longDescription,
       date,
       location,
@@ -82,7 +82,7 @@ class EventPage extends React.Component<IProps, IState> {
           </p>
         ) : (
           <p className="description">
-            {description}
+            <RichText content={shortDescription} />
           </p>
         )}
       </div>
