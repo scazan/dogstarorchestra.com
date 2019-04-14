@@ -15,7 +15,7 @@ class EventPreview extends React.Component<IProps> {
       <Link to={`/event/${this.props.event.fields.slug}`}>
         <div className="eventPreview">
           <div className="date">
-            {moment(event.date).format('ll')}
+            {moment(event.date).format('lll')}
           </div>
           <div className="title">
               {event.title}
@@ -27,6 +27,7 @@ class EventPreview extends React.Component<IProps> {
               </a>
             ) : (
               <span>{event.venue}</span>
+              
             )}
           </div>
           <div className="price">

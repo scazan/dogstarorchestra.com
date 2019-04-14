@@ -11,6 +11,7 @@ $break-mobile: 1000px;
   @media screen and (max-width: $break-mobile) {
     max-width: 100%;
     min-width: initial;
+    width: 100%;
   }
 
   h1 {
