@@ -33,6 +33,12 @@ export const getEntries = (contentTypes: string[]) => {
 export const getEntry = (id: string|number) => client.getEntry(`${id}`)
   .catch(console.error);
 
+export const getEventsBySlug = (slug: string) => client.getEntries({content_type: 'festivalEvent', 'fields.slug[in]': slug})
+  .catch(console.error);
+
+export const getPagesBySlug = (slug: string) => client.getEntries({content_type: 'page', 'fields.slug[in]': slug})
+  .catch(console.error);
+
 export const state = {
   backgroundColor: `hsl(${parseInt((Math.random() * 357).toString(), 10)}, 100%, 92%, 1)`,
 };

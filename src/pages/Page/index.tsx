@@ -1,20 +1,19 @@
 import * as React from 'react';
 import { Link } from "react-router-dom";
-import { getEntry } from '../../util/store';
+import { getPagesBySlug } from '../../util/store';
 import RichText from '../../components/RichText/index';
 import './index.scss';
 
 interface IProps {
   match: {
     params: {
-      id: number,
+      slug: string,
     }
   }
 }
 interface IState {
   entry: any,
 }
-
 
 class EventPage extends React.Component<IProps, IState> {
   constructor(props: IProps) {
@@ -54,9 +53,9 @@ class EventPage extends React.Component<IProps, IState> {
 
   componentDidMount() {
     const { match: { params } } = this.props;
-    getEntry(params.id)
+    getPagesBySlug(params.slug)
       .then( (entry: any) => this.setState({
-        entry
+        entry: entry.items[0],
       }));
   }
 };

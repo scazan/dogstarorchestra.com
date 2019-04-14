@@ -2,13 +2,13 @@ import * as React from 'react';
 import moment from 'moment';
 import RichText from '../../components/RichText/index';
 import { Link } from "react-router-dom";
-import { getEntry } from '../../util/store';
+import { getEventsBySlug } from '../../util/store';
 import './index.scss';
 
 interface IProps {
   match: {
     params: {
-      id: number,
+      slug: string,
     }
   }
 }
@@ -91,10 +91,10 @@ class EventPage extends React.Component<IProps, IState> {
 
   componentDidMount() {
     const { match: { params } } = this.props;
-    getEntry(params.id)
+    getEventsBySlug(params.slug)
       .then( (entry: any) => this.setState({
-        entry
-      }));
+          entry: entry.items[0]
+      })).catch(console.log);
   }
 };
 

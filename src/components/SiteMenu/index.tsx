@@ -27,7 +27,7 @@ class SiteMenu extends React.Component<IProps, IState> {
       >
         <div className="menuItems">
           {this.state.pages.map( (page: any) => (
-            <Link to={`/${page.sys.id}`}>
+            <Link to={`/${page.fields.slug}`}>
               <div className="menuItem">{page.fields.title}</div>
             </Link>
           ))}

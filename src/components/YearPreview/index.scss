@@ -3,14 +3,10 @@ $break-medium: 1500px;
 $break-mobile: 1000px;
 
 .yearPreview {
-  @media print {
-    page-break-after: always;
-  }
-
   min-width: 1200px;
   width: 1200px;
   margin: 0 auto;
-  margin-bottom: 200px;
+  padding-bottom: 200px;
 
   @media screen and (min-width: $break-large) {
     width: 1770px;
@@ -22,6 +18,11 @@ $break-mobile: 1000px;
   @media screen and (max-width: $break-mobile) {
     width: 300px;
     min-width: initial;
+  }
+
+  @media print {
+    page-break-after: always;
+    width: 1800px;
   }
 
   .title {
@@ -71,13 +72,19 @@ $break-mobile: 1000px;
     @media screen and (max-width: $break-mobile) {
       grid-template-columns: 295px;
     }
+    @media print {
+      grid-template-columns: 295px 295px 295px 295px 295px 295px;
+    }
   }
 
   &.past {
     opacity: 0.2;
+    @media print {
+      opacity: 1;
+    }
   }
   &.past:hover {
-    opacity: 0.5;
+    opacity: 0.8;
   }
 
   .information {

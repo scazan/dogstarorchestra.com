@@ -16,7 +16,7 @@ const routing = (
       style={{backgroundColor: state.backgroundColor, paddingTop: '100px'}}
     >
       <Switch>
-        <Route path="/event/:id" component={EventPage}/>
+        <Route path="/event/:slug" component={EventPage}/>
         <Route path="/:id" component={Page}/>
         <Route path="/" component={App}/>
       </Switch>

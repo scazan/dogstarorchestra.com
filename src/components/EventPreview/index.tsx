@@ -12,7 +12,7 @@ class EventPreview extends React.Component<IProps> {
   public render() {
     const event = this.props.event.fields;
     return (
-      <Link to={`/event/${this.props.event.sys.id}`}>
+      <Link to={`/event/${this.props.event.fields.slug}`}>
         <div className="eventPreview">
           <div className="date">
             {moment(event.date).format('ll')}
