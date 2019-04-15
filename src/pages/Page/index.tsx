@@ -15,7 +15,7 @@ interface IState {
   entry: any,
 }
 
-class EventPage extends React.Component<IProps, IState> {
+class Page extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
 
@@ -60,4 +60,4 @@ class EventPage extends React.Component<IProps, IState> {
   }
 };
 
-export default EventPage;
+export default Page;
