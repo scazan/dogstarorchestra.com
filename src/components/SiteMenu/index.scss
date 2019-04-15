@@ -10,6 +10,9 @@ $break-mobile: 1000px;
   padding-bottom: 25px;
   padding-top: 0px;
 
+  @media screen and (max-width: $break-mobile) {
+    position: relative;
+  }
   @media print {
     display: none;
   }
