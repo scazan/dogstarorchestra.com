@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import registerServiceWorker from './registerServiceWorker';
 import { state }  from './util/store';
 import ScrollToTop from './ScrollToTop';
 import App from './App';
@@ -30,4 +31,9 @@ ReactDOM.render(
   routing,
   document.getElementById('root') as HTMLElement
 );
-// registerServiceWorker();
+
+const body = document.querySelector('body');
+if (body) {
+  body.style.backgroundColor = state.backgroundColor;
+}
+registerServiceWorker();
