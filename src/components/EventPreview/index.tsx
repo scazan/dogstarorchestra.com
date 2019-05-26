@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Link } from "react-router-dom";
 import RichText from '../RichText/index';
 import moment from 'moment';
+import 'moment-timezone';
 import './index.scss';
 
 interface IProps {
@@ -15,7 +16,7 @@ class EventPreview extends React.Component<IProps> {
       <Link to={`/event/${this.props.event.fields.slug}`}>
         <div className="eventPreview">
           <div className="date">
-            {moment(event.date).format('lll')}
+            {moment(event.date).tz('America/Los_Angeles').format('lll')}
           </div>
           <div className="title">
               {event.title}
