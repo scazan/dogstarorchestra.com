@@ -23,6 +23,10 @@ $break-mobile: 1000px;
   @media print {
     page-break-after: always;
     width: 1800px;
+
+    .eventPreview:hover > .title::after {
+      content: '';
+    }
   }
 
   .title {
