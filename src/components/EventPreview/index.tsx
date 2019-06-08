@@ -12,7 +12,8 @@ interface IProps {
 class EventPreview extends React.Component<IProps> {
   public render() {
     const event = this.props.event.fields;
-    const isPast = moment() > moment(event.date);
+    const isPast = moment() > moment(event.date).add(1, 'day').startOf('day');
+
     return (
       <Link to={`/event/${this.props.event.fields.slug}`}>
         <div className={`eventPreview ${isPast && 'past'}`}>
