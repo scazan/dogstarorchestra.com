@@ -4,6 +4,20 @@
   width: 270px;
   margin-right: 25px;
 
+  &.past {
+    opacity: 0.2;
+    @media print {
+      opacity: 1;
+    }
+  }
+
+  &.past:hover {
+    opacity: 0.8;
+    @media print {
+      opacity: 1;
+    }
+  }
+
   div {
     margin-bottom: 25px;
   }
@@ -21,6 +35,9 @@
       bottom: 2px;
       font-size: 14px;
       color: #666;
+      @media print {
+        content: '';
+      }
     }
 
   .date {
