@@ -36,4 +36,4 @@ const body = document.querySelector('body');
 if (body) {
   body.style.backgroundColor = state.backgroundColor;
 }
-registerServiceWorker();
+// registerServiceWorker();
