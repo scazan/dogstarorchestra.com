@@ -18,7 +18,10 @@ class EventPreview extends React.Component<IProps> {
       <Link to={`/event/${this.props.event.fields.slug}`}>
         <div className={`eventPreview ${isPast && 'past'}`}>
           <div className="date">
-            {moment(event.date).tz('America/Los_Angeles').format('lll')}
+            {
+              // @ts-ignore
+              moment(event.date).tz('America/Los_Angeles').format('lll')
+            }
           </div>
           <div className="title">
               {event.title}

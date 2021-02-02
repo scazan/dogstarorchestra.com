@@ -56,7 +56,10 @@ class EventPage extends React.Component<IProps, IState> {
         )}
         <h2>
           <div className="date">
-            {date && moment(date).tz('America/Los_Angeles').format('lll')}
+            {
+              // @ts-ignore
+              date && moment(date).tz('America/Los_Angeles').format('lll')
+            }
           </div>
 
           {venue && (
