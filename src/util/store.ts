@@ -16,7 +16,8 @@ export const fetchContentTypes = () => {
 
 export const fetchEntriesForContentType = (contentType: any) => {
   return client.getEntries({
-      content_type: contentType
+      content_type: contentType,
+      limit: 1000,
     })
   .then((response) => response.items)
   .catch((error) => {
