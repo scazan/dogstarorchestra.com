@@ -28,7 +28,7 @@ class EventPreview extends React.Component<IProps> {
           </div>
           <div className="venue">
             {event.location ? (
-              <a href={`https://www.google.com/maps/dir/?api=1&destination=${event.location.lat},${event.location.lon}`} target="_blank">
+              <a href={`https://www.google.com/maps/dir/?api=1&destination=${event.location.lat},${event.location.lon}`} target="_blank" rel="noreferrer">
                 {event.venue}
               </a>
             ) : (

@@ -16,7 +16,7 @@ interface IState {
   entry: any,
 }
 
-class EventPage extends React.Component<IProps, IState> {
+const EventPage = class EventPage extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
 
@@ -66,7 +66,7 @@ class EventPage extends React.Component<IProps, IState> {
               <span className="venue">
                 &nbsp;at&nbsp;
                 {(location) ? (
-                  <a href={`https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lon}`} target="_blank">
+                  <a href={`https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lon}`} target="_blank" rel="noreferrer">
                     {venue}
                   </a>
                 ) : (
