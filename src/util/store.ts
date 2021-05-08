@@ -40,6 +40,20 @@ export const getEventsBySlug = (slug: string) => client.getEntries({content_type
 export const getPagesBySlug = (slug: string) => client.getEntries({content_type: 'page', 'fields.slug[in]': slug})
   .catch(console.error);
 
+// @ts-ignore
+const backgroundColors = [
+  'rgb(112, 255, 112)',
+  'rgb(231, 255, 112)',
+  'rgb(112, 255, 155)',
+  'rgb(167, 255, 112)',
+  'rgb(255, 243, 112)',
+  'rgb(112, 255, 148)',
+  'rgb(255, 99, 65)',
+  'rgb(248, 255, 112)',
+  'rgb(214, 255, 221)',
+  'rgb(228, 214, 255)',
+];
 export const state = {
-  backgroundColor: `hsl(${parseInt((Math.random() * 357).toString(), 10)}, 100%, 92%, 1)`,
+  // backgroundColor: `hsl(${parseInt((Math.random() * 157).toString(), 10)}, 100%, 72%, 1)`,
+  backgroundColor: backgroundColors[Math.floor(Math.random() * backgroundColors.length)],
 };

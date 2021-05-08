@@ -1,8 +1,10 @@
 .eventPreview {
   margin-top: 20px;
   margin-bottom: 80px;
-  width: 270px;
-  margin-right: 25px;
+  // width: 270px;
+  // margin-right: 25px;
+
+  font-size: 1.25rem;
 
   &.past {
     opacity: 0.2;
@@ -20,25 +22,34 @@
 
   div {
     margin-bottom: 25px;
+    // margin-bottom: 2em;
   }
 
   .title {
+    position: relative;
     font-weight: 700;
     font-size: 1.5em;
     margin-bottom: 5px;
+    margin-bottom: 0.25em;
+    letter-spacing: 0.02em;
   }
 
-    &:hover > .title::after {
-      content: '⟶ ';
-      position: relative;
-      left: 15px;
-      bottom: 2px;
-      font-size: 14px;
-      color: #666;
-      @media print {
-        content: '';
-      }
+  .arrow {
+    visibility: hidden;
+    position: relative;
+    left: 1em;
+    bottom: 0.33em;
+    content: '⟶ ';
+    font-size: 14px;
+
+    @media print {
+      content: '';
     }
+  }
+
+  &:hover .arrow {
+    visibility: visible;
+  }
 
   .date {
     border-bottom: 1px solid #333;

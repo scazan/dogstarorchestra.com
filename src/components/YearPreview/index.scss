@@ -66,18 +66,21 @@ $break-mobile: 1000px;
 
   .events {
     display: grid;
-    grid-template-columns: 295px 295px 295px 295px ;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 51.5px;
+    grid-row-gap: 80px;
+
     @media screen and (min-width: $break-large) {
-      grid-template-columns: 295px 295px 295px 295px 295px 295px;
+      grid-template-columns: repeat(5, 1fr);
     }
     @media screen and (max-width: $break-medium) {
-      grid-template-columns: 295px 295px 295px;
+      grid-template-columns: repeat(3, 1fr);
     }
     @media screen and (max-width: $break-mobile) {
-      grid-template-columns: 295px;
+      grid-template-columns: 1fr;
     }
     @media print {
-      grid-template-columns: 295px 295px 295px 295px 295px 295px;
+      grid-template-columns: repeat(6, 1fr);
     }
   }
 
@@ -99,10 +102,29 @@ $break-mobile: 1000px;
     margin-bottom: 100px;
     line-height: 2em;
     text-align: justify;
+
     &.hidden {
       margin-bottom: 0px;
       height: 0;
       overflow: hidden;
+    }
+
+    .content {
+      column-count: 2;
+      column-gap: 2em;
+      @media screen and (max-width: $break-mobile) {
+        column-count: 1;
+      }
+
+      p {
+        font-size: 1.25rem;
+        margin: 0em;
+        margin-bottom: 2em;
+      }
+
+      .image {
+        margin: 0;
+      }
     }
 
 

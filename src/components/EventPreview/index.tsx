@@ -12,7 +12,9 @@ interface IProps {
 class EventPreview extends React.Component<IProps> {
   public render() {
     const event = this.props.event.fields;
-    const isPast = moment() > moment(event.date).add(1, 'day').startOf('day');
+    const isPast = moment() > moment(event.date)
+      .add(1, 'day')
+      .startOf('day');
 
     return (
       <Link to={`/event/${this.props.event.fields.slug}`}>
@@ -24,7 +26,7 @@ class EventPreview extends React.Component<IProps> {
             }
           </div>
           <div className="title">
-              {event.title}
+              {event.title}<span className="arrow">⟶</span>
           </div>
           <div className="venue">
             {event.location ? (
