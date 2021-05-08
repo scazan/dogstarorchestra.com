@@ -41,7 +41,7 @@ $break-mobile: 1000px;
     border-bottom: 1px solid transparent;
 
     &:hover {
-      border-bottom: 1px dotted #666;
+      border-bottom: 1px dotted #333;
     }
   }
     a.festivalTitle {
@@ -57,7 +57,6 @@ $break-mobile: 1000px;
       position: absolute;
       left: -42px;
       bottom: 12px;
-      color: #666;
       font-size: 14px;
     }
 

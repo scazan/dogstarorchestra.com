@@ -57,7 +57,7 @@ $break-mobile: 1000px;
 
     .date, .venue, .price, a {
       display: inline-block;
-      color: #666;
+      color: #333;
     }
 
     .venue:hover::after {
@@ -66,7 +66,7 @@ $break-mobile: 1000px;
       left: 15px;
       bottom: 4px;
       font-size: 14px;
-      color: #666;
+      color: #333;
     }
 
     .price {
@@ -85,7 +85,7 @@ $break-mobile: 1000px;
     border-bottom: 1px solid transparent;
 
     &:hover {
-      border-bottom: 1px dotted #666;
+      border-bottom: 1px dotted #333;
     }
   }
 
