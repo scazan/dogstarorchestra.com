@@ -50,7 +50,7 @@ class YearPreview extends React.Component<IProps, IState> {
             <RichText content={longDescription} />
           </div>
         )}
-        <div className="events">
+        <div className={`events ${events.length === 1 && 'short'}`}>
           { events.map((event: any, i: number) =>
             <EventPreview event={event}/>
           )}

@@ -82,6 +82,10 @@ $break-mobile: 1000px;
     @media print {
       grid-template-columns: repeat(6, 1fr);
     }
+
+    &.short {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   &.past > .title {
