@@ -45,6 +45,10 @@ $break-mobile: 1000px;
       position: absolute;
       bottom: -105px;
       left: 47%;
+
+      @media screen and (max-width: $break-mobile) {
+        display: none;
+      }
     }
 
   @media screen and (min-width: $break-large) {
