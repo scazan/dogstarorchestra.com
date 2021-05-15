@@ -43,7 +43,8 @@ class YearPreview extends React.Component<IProps, IState> {
           className="title"
           onClick={this.toggleInformation}
         >
-          {year.title}
+        The<br/>
+          {year.title.toLowerCase().split('the ').join('')}
         </h1>
         {longDescription && (
           <div className={`information ${hiddenClass}`}>

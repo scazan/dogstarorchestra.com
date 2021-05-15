@@ -18,6 +18,7 @@ $break-mobile: 1000px;
 
   h1 {
     margin-bottom: 100px;
+    font-weight: normal;
 
     @media screen and (max-width: $break-mobile) {
       & {

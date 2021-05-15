@@ -29,6 +29,9 @@ $break-mobile: 1000px;
     }
   }
 
+  h1 {
+    font-weight: normal;
+  }
   .title {
     cursor: pointer;
     user-select: none;
@@ -70,6 +73,10 @@ $break-mobile: 1000px;
     grid-column-gap: 51.5px;
     grid-row-gap: 80px;
 
+    &.short {
+      grid-template-columns: 1fr 1fr;
+    }
+
     @media screen and (min-width: $break-large) {
       grid-template-columns: repeat(5, 1fr);
     }
@@ -78,13 +85,12 @@ $break-mobile: 1000px;
     }
     @media screen and (max-width: $break-mobile) {
       grid-template-columns: 1fr;
+      &.short {
+        grid-template-columns: 1fr;
+      }
     }
     @media print {
       grid-template-columns: repeat(6, 1fr);
-    }
-
-    &.short {
-      grid-template-columns: 1fr 1fr;
     }
   }
 
