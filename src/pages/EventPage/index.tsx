@@ -64,7 +64,7 @@ const EventPage = class EventPage extends React.Component<IProps, IState> {
 
           {venue && (
               <span className="venue">
-                &nbsp;at&nbsp;
+                at&nbsp;
                 {(location) ? (
                   <a href={`https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lon}`} target="_blank" rel="noreferrer">
                     {venue}

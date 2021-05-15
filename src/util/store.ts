@@ -48,10 +48,10 @@ const backgroundColors = [
   'rgb(167, 255, 112)',
   'rgb(255, 243, 112)',
   'rgb(112, 255, 148)',
-  'rgb(255, 99, 65)',
   'rgb(248, 255, 112)',
   'rgb(214, 255, 221)',
   'rgb(228, 214, 255)',
+  'rgb(90 148 255)',
 ];
 export const state = {
   // backgroundColor: `hsl(${parseInt((Math.random() * 157).toString(), 10)}, 100%, 72%, 1)`,
