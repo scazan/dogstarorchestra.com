@@ -7,7 +7,7 @@ import ScrollToTop from './ScrollToTop';
 import App from './App';
 import EventPage from './pages/EventPage/index';
 import Page from './pages/Page/index';
-import Menu from './components/SiteMenu/index';
+// import Menu from './components/SiteMenu/index';
 import './index.css';
 
 const routing = (
@@ -21,7 +21,6 @@ const routing = (
         <Route path="/:id" component={Page}/>
         <Route path="/" component={App}/>
       </Switch>
-      <Menu/>
     </div>
   </ScrollToTop>
   </Router>

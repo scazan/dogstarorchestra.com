@@ -1,9 +1,5 @@
-/* @import './reset.css'; */
-@import url(https://fonts.googleapis.com/css?family=Crimson+Text);
 @import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Ultra|Lusitana);
-/* @import url(https://fonts.googleapis.com/css?family=Quicksand); */
-/* @import url('https://fonts.googleapis.com/css?family=Cinzel|Cormorant|Cormorant+Garamond|Crimson+Text|Nanum+Myeongjo'); */
-@import url('https://fonts.googleapis.com/css?family=Arsenal|Duru+Sans|Hind+Guntur|Julius+Sans+One|Karla|Krub|Montserrat|Quattrocento+Sans|Questrial|Tenor+Sans');
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
 
 body {
   margin: 0;

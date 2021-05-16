@@ -24,8 +24,6 @@ class App extends React.Component<object, State> {
       return accum;
     }, {});
 
-    console.log(yearsAndEvents);
-
     return (
       <div className="App">
       {this.state.years.map((year: any, i) =>

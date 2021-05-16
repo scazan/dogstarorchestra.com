@@ -2,10 +2,6 @@ $break-mobile: 1000px;
 
 .eventPreview {
   margin-top: 20px;
-  margin-bottom: 80px;
-  // width: 270px;
-  // margin-right: 25px;
-
   font-size: 1.25rem;
 
   &.past {
@@ -24,7 +20,6 @@ $break-mobile: 1000px;
 
   div {
     margin-bottom: 25px;
-    // margin-bottom: 2em;
   }
 
   .title {

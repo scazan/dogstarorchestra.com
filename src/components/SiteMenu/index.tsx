@@ -20,7 +20,6 @@ class SiteMenu extends React.Component<IProps, IState> {
       .then( (pages: any) => this.setState({pages}));
   }
   public render() {
-    console.log('>>>', this.state.pages);
     return (
       <div className="menu"
         style={{backgroundColor: state.backgroundColor}}
