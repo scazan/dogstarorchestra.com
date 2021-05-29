@@ -21,5 +21,6 @@ yarn-debug.log*
 yarn-error.log*
 loadDev.sh
 *.vim
+.eslintcache
 
 .env

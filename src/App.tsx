@@ -20,7 +20,7 @@ class App extends React.Component<object, State> {
   public render() {
     const yearsAndEvents = this.state.years.reduce((accum, year: any) => {
       accum[year.sys.id] = this.state.events.filter(event =>
-       event && event.fields && event.fields.festival && (event.fields.festival.sys.id === year.sys.id));
+       event && event.fields && event.fields.festival && (event.fields.festival.sys.id === year.sys.id) && (event.fields.slug !== 'test'));
       return accum;
     }, {});
 

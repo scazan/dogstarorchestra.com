@@ -6,6 +6,7 @@ import { state }  from './util/store';
 import ScrollToTop from './ScrollToTop';
 import App from './App';
 import EventPage from './pages/EventPage/index';
+import VideoPage from './pages/EventPage/index';
 import Page from './pages/Page/index';
 // import Menu from './components/SiteMenu/index';
 import './index.css';
@@ -17,6 +18,7 @@ const routing = (
       style={{backgroundColor: state.backgroundColor, paddingTop: '100px'}}
     >
       <Switch>
+        <Route path="/event/screening/:slug" component={VideoPage}/>
         <Route path="/event/:slug" component={EventPage}/>
         <Route path="/:id" component={Page}/>
         <Route path="/" component={App}/>

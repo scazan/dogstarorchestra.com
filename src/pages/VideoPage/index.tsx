@@ -45,6 +45,7 @@ const EventPage = class EventPage extends React.Component<IProps, IState> {
       .find(linkedDocument => linkedDocument.sys.id === video.sys.id)
     );
 
+    console.log(videoEntries);
     if (videoEntries.length > 0) {
       return (
         <>
@@ -74,6 +75,8 @@ const EventPage = class EventPage extends React.Component<IProps, IState> {
       festival,
       videos,
     } = this.state.entry.fields;
+
+    console.log(videos);
 
     const hasVideos = videos?.length > 0;
 

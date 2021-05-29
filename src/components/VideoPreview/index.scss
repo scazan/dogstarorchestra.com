@@ -1,0 +1,22 @@
+$break-mobile: 1000px;
+
+.eventPreview.videoPreview {
+  position: relative;
+  margin-top: 0px;
+
+  .thumb {
+    display: none;
+    position: absolute;
+    top: 4em;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &:hover {
+    .title, .description {
+      opacity: 0;
+    }
+  }
+}
