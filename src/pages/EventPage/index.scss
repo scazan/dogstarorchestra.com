@@ -139,11 +139,8 @@ $break-mobile: 1000px;
     line-height: 2em;
     text-align: justify;
     grid-column: 1 / span 2;
-  }
-
-  .short {
-    .description {
-      grid-column: 1 / span 2;
+    @media screen and (max-width: $break-mobile) {
+      grid-column: 1;
     }
   }
 
