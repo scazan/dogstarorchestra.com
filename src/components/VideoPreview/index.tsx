@@ -48,23 +48,23 @@ class VideoPreview extends React.Component<IProps> {
       <Link to={`/event/screening/${this.props.event.fields.slug}`}>
         <div
           className={`eventPreview videoPreview`}
-          onMouseEnter={() => this.onHover(true)}
-          onMouseLeave={() => this.onHover(false)}
           ref={this.imageRef}
         >
           <div className="date">
             <RichText content={event.technicalDetails} />
           </div>
+
+          <div className="thumb">
+            <img src={thumbUrl} />
+          </div>
+
           <div className="title">
             {event.author}<span className="arrow">⟶</span>
           </div>
           <div className="description">
             {event.title}
           </div>
-          <div className="thumb"
-          >
-            <img src={thumbUrl} />
-          </div>
+          
         </div>
       </Link>
     );
