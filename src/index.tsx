@@ -6,7 +6,7 @@ import { state }  from './util/store';
 import ScrollToTop from './ScrollToTop';
 import App from './App';
 import EventPage from './pages/EventPage/index';
-import VideoPage from './pages/EventPage/index';
+import VideoPage from './pages/VideoPage/index';
 import Page from './pages/Page/index';
 // import Menu from './components/SiteMenu/index';
 import './index.css';

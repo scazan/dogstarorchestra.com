@@ -37,6 +37,9 @@ export const getEntry = (id: string|number) => client.getEntry(`${id}`)
 export const getEventsBySlug = (slug: string) => client.getEntries({content_type: 'festivalEvent', 'fields.slug[in]': slug})
   .catch(console.error);
 
+export const getVideosBySlug = (slug: string) => client.getEntries({content_type: 'video', 'fields.slug[in]': slug})
+  .catch(console.error);
+
 export const getPagesBySlug = (slug: string) => client.getEntries({content_type: 'page', 'fields.slug[in]': slug})
   .catch(console.error);
 

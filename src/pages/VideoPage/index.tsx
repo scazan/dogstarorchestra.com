@@ -2,7 +2,7 @@ import * as React from 'react';
 import moment from 'moment';
 import RichText from '../../components/RichText/index';
 import { Link } from "react-router-dom";
-import { getEventsBySlug } from '../../util/store';
+import { getVideosBySlug } from '../../util/store';
 import VideoPreview from '../../components/VideoPreview/index';
 import './index.scss';
 
@@ -13,12 +13,15 @@ interface IProps {
     }
   }
 }
+
 interface IState {
   includes: any,
   entry: any,
 }
 
 const EventPage = class EventPage extends React.Component<IProps, IState> {
+  private embedRef: React.Ref<any>;
+
   constructor(props: IProps) {
     super(props);
 
@@ -31,58 +34,49 @@ const EventPage = class EventPage extends React.Component<IProps, IState> {
           title: '',
           description: null,
           longDescription: null,
+          embed: '',
         },
       },
     };
 
-    this.renderVideos = this.renderVideos.bind(this);
+    this.embedRef = React.createRef();
   }
 
-  renderVideos(videos: any) {
-    const linkedDocuments = this.state.includes?.Entry;
+  componentDidUpdate() {
+    // @ts-ignore
+    const embedContainer = this.embedRef.current;
 
-    const videoEntries = videos.map(video => linkedDocuments
-      .find(linkedDocument => linkedDocument.sys.id === video.sys.id)
-    );
+    if (embedContainer) {
+      const iframe = embedContainer.querySelector('iframe');
+      const aspectRatio = iframe.height / iframe.width;
 
-    console.log(videoEntries);
-    if (videoEntries.length > 0) {
-      return (
-        <>
-          {videoEntries.map(entry => (
-            <VideoPreview
-              event={entry}
-              includes={this.state.includes.Asset}
-            />
-          ))}
-        </>
-      );
+      const containerWidth = embedContainer.getBoundingClientRect().width;
+
+      console.log(aspectRatio);
+
+      iframe.setAttribute('width', containerWidth);
+      iframe.setAttribute('height', containerWidth * aspectRatio);
     }
-
-
-    return <></>;
   }
 
   public render() {
+    console.log(this.state);
+
     const {
       title,
-      shortDescription,
+      author,
+      technicalDetails,
       longDescription,
-      date,
-      location,
-      venue,
-      price,
       festival,
-      videos,
+      embed,
     } = this.state.entry.fields;
 
-    console.log(videos);
-
-    const hasVideos = videos?.length > 0;
-
     return (
-      <div className="eventPage">
-        <h1 className="title">{title}</h1>
+      <div className="eventPage videoPage">
+        <div className="headerGrid">
+          <h1 className="title">{author}</h1>
+        </div>
+
         {festival && (
             <h2 className="festivalTitle">
               <Link to="/">
@@ -90,43 +84,37 @@ const EventPage = class EventPage extends React.Component<IProps, IState> {
               </Link>
             </h2>
         )}
-        <h2>
-          <div className="date">
-            {
-              // @ts-ignore
-              date && moment(date).tz('America/Los_Angeles').format('lll')
-            }
+        <div className={`pageContent`}>
+          <div className="screeningMenu">
+            The Dog Star Orchestra 17 Film Screening
+            <ol>
+              <li>Christina C Nguyen</li>
+              <li>Dicky Bahto</li>
+              <li>Mike Stoltz </li>
+              <li>Ziyao Susan Xie</li>
+              <li>kevin corcoran</li>
+              <li>Qianyi Ma </li>
+              <li>Sam Gurry</li>
+              <li>Anna Kipervaser and Rhys Morgan</li>
+            </ol>
           </div>
-
-          {venue && (
-              <span className="venue">
-                at&nbsp;
-                {(location) ? (
-                  <a href={`https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lon}`} target="_blank" rel="noreferrer">
-                    {venue}
-                  </a>
-                ) : (
-                  <span>{venue}</span>
-                )}
-              </span>
-          )}
-
-          <div className="price">
-            {price}
+          <div
+            className="videoEmbed"
+            ref={this.embedRef}
+            dangerouslySetInnerHTML={{ __html: embed }}
+          >
           </div>
-      </h2>
-        <div className={`pageContent${hasVideos ? '' : ' short'}`}>
-          {longDescription ? (
+          <h1 className="title">
+            {title}
+          </h1>
+          <div className="info">
+            <p className="date">
+              <RichText content={technicalDetails} />
+            </p>
             <p className="description">
               <RichText content={longDescription} />
             </p>
-          ) : (
-            <p className="description">
-              <RichText content={shortDescription} />
-            </p>
-          )}
-
-          {hasVideos && this.renderVideos(videos)}
+          </div>
         </div>
       </div>
     );
@@ -134,7 +122,11 @@ const EventPage = class EventPage extends React.Component<IProps, IState> {
 
   componentDidMount() {
     const { match: { params } } = this.props;
-    getEventsBySlug(params.slug)
+    getVideosBySlug(params.slug)
+      .then( (entry: any) => {
+        console.log(entry);
+        return entry;
+      })
       .then( (entry: any) => this.setState({
           entry: entry.items[0],
           includes: entry.includes,
