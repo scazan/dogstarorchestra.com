@@ -3,6 +3,16 @@ $break-medium: 1500px;
 $break-mobile: 1000px;
 
 .videoPage {
+
+  .arrow {
+    visibility: hidden;
+    position: relative;
+    left: 1em;
+    bottom: 0.1em;
+    content: '⟶ ';
+    font-size: 14px;
+  }
+
   .headerGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -14,6 +24,13 @@ $break-mobile: 1000px;
   }
 
   .pageContent {
+    .content {
+      h2 {
+        margin-bottom: 2rem;
+      }
+    }
+
+
     .title {
       margin: 0;
       grid-column: 2/3 span;
@@ -30,6 +47,10 @@ $break-mobile: 1000px;
     .screeningMenu {
       ol {
         padding: 0;
+      }
+
+      p:hover .arrow {
+        visibility: visible;
       }
     }
 

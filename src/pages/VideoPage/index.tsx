@@ -42,7 +42,7 @@ const EventPage = class EventPage extends React.Component<IProps, IState> {
     this.embedRef = React.createRef();
   }
 
-  componentDidUpdate() {
+  updateVideoSize() {
     // @ts-ignore
     const embedContainer = this.embedRef.current;
 
@@ -60,8 +60,6 @@ const EventPage = class EventPage extends React.Component<IProps, IState> {
   }
 
   public render() {
-    console.log(this.state);
-
     const {
       title,
       author,
@@ -85,18 +83,16 @@ const EventPage = class EventPage extends React.Component<IProps, IState> {
             </h2>
         )}
         <div className={`pageContent`}>
-          <div className="screeningMenu">
-            The Dog Star Orchestra 17 Film Screening
-            <ol>
-              <li>Christina C Nguyen</li>
-              <li>Dicky Bahto</li>
-              <li>Mike Stoltz </li>
-              <li>Ziyao Susan Xie</li>
-              <li>kevin corcoran</li>
-              <li>Qianyi Ma </li>
-              <li>Sam Gurry</li>
-              <li>Anna Kipervaser and Rhys Morgan</li>
-            </ol>
+          <div className="screeningMenu content">
+            <h2><Link to="/event/test">The Dog Star Orchestra 17 Film Screening</Link></h2>
+              <p><Link to="/event/screening/you-dont-own-me">1. Christina C Nguyen</Link><span className="arrow">⟶</span></p>
+              <p><Link to="/event/screening/whats-a-life">2. Dicky Bahto</Link><span className="arrow">⟶</span></p>
+              <p><Link to="/event/screening/something-to-touch-that-is-not-corruption-or-ashes-or-dust">3. Mike Stoltz</Link><span className="arrow">⟶</span></p>
+              <p><Link to="/event/screening/first-love">4. Ziyao Susan Xie</Link><span className="arrow">⟶</span></p>
+              <p><Link to="/event/screening/soft-tremors">5. kevin corcoran</Link><span className="arrow">⟶</span></p>
+              <p><Link to="/event/screening/wander">6. Qianyi Ma</Link><span className="arrow">⟶</span></p>
+              <p><Link to="/event/screening/gutterball">7. Sam Gurry</Link><span className="arrow">⟶</span></p>
+              <p><Link to="/event/screening/no-garden-beyond">8. Anna Kipervaser and Rhys Morgan</Link><span className="arrow">⟶</span></p>
           </div>
           <div
             className="videoEmbed"
@@ -131,6 +127,21 @@ const EventPage = class EventPage extends React.Component<IProps, IState> {
           entry: entry.items[0],
           includes: entry.includes,
       })).catch(console.log);
+  }
+
+  componentDidUpdate() {
+    const { match: { params } } = this.props;
+    getVideosBySlug(params.slug)
+      .then( (entry: any) => {
+        console.log(entry);
+        return entry;
+      })
+      .then( (entry: any) => this.setState({
+          entry: entry.items[0],
+          includes: entry.includes,
+      }))
+    .then(this.updateVideoSize.bind(this))
+      .catch(console.log);
   }
 };
 
