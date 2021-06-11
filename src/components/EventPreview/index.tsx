@@ -13,7 +13,7 @@ class EventPreview extends React.Component<IProps> {
   public render() {
     const event = this.props.event.fields;
     const isPast = moment() > moment(event.date)
-      .add(1, 'day')
+      .add(1, 'year')
       .startOf('day');
 
     return (
