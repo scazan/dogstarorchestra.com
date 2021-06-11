@@ -84,7 +84,7 @@ const EventPage = class EventPage extends React.Component<IProps, IState> {
         )}
         <div className={`pageContent`}>
           <div className="screeningMenu content">
-            <h2><Link to="/event/test">The Dog Star Orchestra 17 Film Screening</Link></h2>
+            <h2><span className="arrow">⟵</span><Link to="/event/test">The Dog Star Orchestra 17<br/>Film Screening</Link></h2>
               <p><Link to="/event/screening/you-dont-own-me">1. Christina C Nguyen</Link><span className="arrow">⟶</span></p>
               <p><Link to="/event/screening/whats-a-life">2. Dicky Bahto</Link><span className="arrow">⟶</span></p>
               <p><Link to="/event/screening/something-to-touch-that-is-not-corruption-or-ashes-or-dust">3. Mike Stoltz</Link><span className="arrow">⟶</span></p>
@@ -113,7 +113,7 @@ const EventPage = class EventPage extends React.Component<IProps, IState> {
           </div>
 
           <div className="screeningMenu mobile content">
-            <h2><Link to="/event/test">The Dog Star Orchestra 17 Film Screening</Link></h2>
+            <h2><Link to="/event/test">The Dog Star Orchestra 17<br/>Film Screening</Link></h2>
               <p><Link to="/event/screening/you-dont-own-me">1. Christina C Nguyen</Link><span className="arrow">⟶</span></p>
               <p><Link to="/event/screening/whats-a-life">2. Dicky Bahto</Link><span className="arrow">⟶</span></p>
               <p><Link to="/event/screening/something-to-touch-that-is-not-corruption-or-ashes-or-dust">3. Mike Stoltz</Link><span className="arrow">⟶</span></p>
@@ -138,22 +138,26 @@ const EventPage = class EventPage extends React.Component<IProps, IState> {
       .then( (entry: any) => this.setState({
           entry: entry.items[0],
           includes: entry.includes,
-      })).catch(console.log);
+      }))
+      .then(this.updateVideoSize.bind(this))
+      .catch(console.log);
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     const { match: { params } } = this.props;
-    getVideosBySlug(params.slug)
-      .then( (entry: any) => {
-        console.log(entry);
-        return entry;
-      })
-      .then( (entry: any) => this.setState({
+    if (prevProps.match.params.slug !== params.slug) {
+      getVideosBySlug(params.slug)
+        .then( (entry: any) => {
+          console.log(entry);
+          return entry;
+        })
+        .then( (entry: any) => this.setState({
           entry: entry.items[0],
           includes: entry.includes,
-      }))
-    .then(this.updateVideoSize.bind(this))
-      .catch(console.log);
+        }))
+        .then(this.updateVideoSize.bind(this))
+        .catch(console.log);
+    }
   }
 };
 

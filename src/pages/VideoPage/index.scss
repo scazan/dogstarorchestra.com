@@ -3,12 +3,11 @@ $break-medium: 1500px;
 $break-mobile: 1000px;
 
 .videoPage {
-
   .arrow {
     visibility: hidden;
     position: relative;
     left: 1em;
-    bottom: 0.1em;
+    bottom: 0.025em;
     content: '⟶ ';
     font-size: 14px;
   }
@@ -61,6 +60,16 @@ $break-mobile: 1000px;
     }
 
     .screeningMenu {
+      h2:hover .arrow {
+        visibility: visible;
+      }
+
+      h2 .arrow {
+        position: absolute;
+        top: 0.5em;
+        left: -3em;
+      }
+
       &.mobile {
         display: none;
       }
