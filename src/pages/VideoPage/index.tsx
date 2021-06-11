@@ -111,6 +111,18 @@ const EventPage = class EventPage extends React.Component<IProps, IState> {
               <RichText content={longDescription} />
             </p>
           </div>
+
+          <div className="screeningMenu mobile content">
+            <h2><Link to="/event/test">The Dog Star Orchestra 17 Film Screening</Link></h2>
+              <p><Link to="/event/screening/you-dont-own-me">1. Christina C Nguyen</Link><span className="arrow">⟶</span></p>
+              <p><Link to="/event/screening/whats-a-life">2. Dicky Bahto</Link><span className="arrow">⟶</span></p>
+              <p><Link to="/event/screening/something-to-touch-that-is-not-corruption-or-ashes-or-dust">3. Mike Stoltz</Link><span className="arrow">⟶</span></p>
+              <p><Link to="/event/screening/first-love">4. Ziyao Susan Xie</Link><span className="arrow">⟶</span></p>
+              <p><Link to="/event/screening/soft-tremors">5. kevin corcoran</Link><span className="arrow">⟶</span></p>
+              <p><Link to="/event/screening/wander">6. Qianyi Ma</Link><span className="arrow">⟶</span></p>
+              <p><Link to="/event/screening/gutterball">7. Sam Gurry</Link><span className="arrow">⟶</span></p>
+              <p><Link to="/event/screening/no-garden-beyond">8. Anna Kipervaser and Rhys Morgan</Link><span className="arrow">⟶</span></p>
+          </div>
         </div>
       </div>
     );

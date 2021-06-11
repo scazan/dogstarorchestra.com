@@ -59,7 +59,7 @@ export const getPagesBySlug = (slug: string) => client.getEntries({content_type:
 const backgroundColors = [
   '#70FF70',
   '#29EAFF',
-  '#E766FF',
+  // '#E766FF',
   '#FBFF00',
   '#15EF86',
 ];
