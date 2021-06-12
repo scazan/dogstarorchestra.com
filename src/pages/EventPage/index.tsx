@@ -130,12 +130,18 @@ const EventPage = class EventPage extends React.Component<IProps, IState> {
   }
 
   componentDidMount() {
+    document.title = `The Dog Star Orchestra`;
+
     const { match: { params } } = this.props;
     getEventsBySlug(params.slug)
-      .then( (entry: any) => this.setState({
+      .then( (entry: any) => {
+
+        document.title = `${entry.items[0].fields.title} - The Dog Star Orchestra`;
+        this.setState({
           entry: entry.items[0],
           includes: entry.includes,
-      })).catch(console.log);
+      });
+  }).catch(console.log);
   }
 };
 

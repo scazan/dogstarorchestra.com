@@ -40,6 +40,8 @@ class App extends React.Component<object, State> {
     let events: any = [];
     let years: any = [];
 
+    document.title = `The Dog Star Orchestra`;
+
     Promise.all([
       getEntries(['festivalEvent'])
         .then( entries => events = entries[0]),

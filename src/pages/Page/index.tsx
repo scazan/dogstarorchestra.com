@@ -54,9 +54,13 @@ class Page extends React.Component<IProps, IState> {
   componentDidMount() {
     const { match: { params } } = this.props;
     getPagesBySlug(params.slug)
-      .then( (entry: any) => this.setState({
-        entry: entry.items[0],
-      }));
+      .then( (entry: any) => {
+        document.title = `${entry.items[0].fields.title} - The Dog Star Orchestra`;
+
+        this.setState({
+          entry: entry.items[0],
+        });
+  });
   }
 };
 
