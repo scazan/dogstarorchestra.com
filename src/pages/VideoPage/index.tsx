@@ -1,6 +1,5 @@
 import * as React from 'react';
 import moment from 'moment';
-import { Helmet } from 'react-helmet';
 import RichText from '../../components/RichText/index';
 import { Link } from "react-router-dom";
 import { getVideosBySlug } from '../../util/store';
